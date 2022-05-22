@@ -23,7 +23,11 @@ class PeopleController
   end
 
   def sort_parsed_info(info)
-    PeopleInfoSortingService::SortByColumn.sort(info, @params.order) if @params[:order]
+    if @params[:order]
+      PeopleInfoSortingService::SortByColumn.sort(info, @params.order)
+    else
+      info
+    end
   end
 
   attr_reader :params
