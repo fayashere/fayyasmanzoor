@@ -9,7 +9,7 @@ module PeopleInfoSortingService
     private
 
     def sort
-      @data.sort_by! { |h| h[column_name] }
+      @data.sort_by! { |h| h[@column_name] }
     end
 
     def initialize(data, column_name)
