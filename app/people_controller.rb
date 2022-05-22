@@ -10,8 +10,6 @@ class PeopleController
     parsed_info += parse_dollar_format if @params[:dollar_format]
     parsed_info += parse_percent_format if @params[:percent_format]
     sort_parsed_info(parsed_info)
-
-    parsed_info
   end
 
   private
