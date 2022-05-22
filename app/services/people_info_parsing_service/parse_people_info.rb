@@ -11,7 +11,7 @@ module PeopleInfoParsingService
     def parse
       result = []
       lines = extract_lines
-      column_names = lines[0].split(@delimiter).map(&:strip)
+      column_names = lines[0].split(delimiter).map(&:strip)
       rows = split_each_line(lines.drop(1))
 
       rows.each do |row|
@@ -29,13 +29,13 @@ module PeopleInfoParsingService
     end
 
     def extract_lines
-      @info.split("\n")
+      info.split("\n")
     end
 
     def split_each_line(lines)
       rows = []
       lines.drop(1).each do |line|
-        row = line.split(@delimiter).map(&:strip)
+        row = line.split(delimiter).map(&:strip)
         rows << row
       end
       rows
@@ -45,5 +45,7 @@ module PeopleInfoParsingService
       @info = info
       @delimiter = delimiter
     end
+
+    attr_reader :info, :delimiter
   end
 end
